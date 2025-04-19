@@ -4,7 +4,7 @@
   outputs = {self}: {
     templates = {
       python = {
-        path = "./python";
+        path = ./python;
         description = "python development environment template";
       };
     };
