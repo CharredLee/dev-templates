@@ -30,11 +30,11 @@
       in {
         default = pkgs.mkShellNoCC {
           venvDir = ".venv";
+          packages = [
+            python.pkgs.venvShellHook
+            python.pkgs.pip
+          ];
         };
-        packages = [
-          python.pkgs.venvShellHook
-          python.pkgs.pip
-        ];
       }
     );
   };
