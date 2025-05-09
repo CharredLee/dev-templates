@@ -22,8 +22,9 @@
           elan
         ];
 
-        postShellHook = ''
+        shellHook = ''
           if [[ -f "lakefile.toml" ]] || [[ -f "lakefile.lean" ]]; then
+            echo "updating lake cache..."
             lake exe cache get
           fi
         '';
