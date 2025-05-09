@@ -32,7 +32,7 @@
           venvDir = ".venv";
           packages = [
             python.pkgs.venvShellHook
-            python.pkgs.pip
+            pkgs.uv
           ];
         };
       }
