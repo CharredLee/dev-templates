@@ -19,14 +19,7 @@
   in {
     devShells = forEachSupportedSystem (
       {pkgs}: let
-        concatMajorMinor = v:
-          pkgs.lib.pipe v [
-            pkgs.lib.versions.splitVersion
-            (pkgs.lib.sublist 0 2)
-            pkgs.lib.concatStrings
-          ];
-
-        python = pkgs."python${concatMajorMinor version}";
+        python = pkgs."python${builtins.replaceStrings ["."] [""] version}";
       in {
         default = pkgs.mkShellNoCC {
           venvDir = ".venv";
