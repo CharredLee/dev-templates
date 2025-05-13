@@ -46,7 +46,7 @@ here are the currently planned features and improvements to this project:
     - [ ] agda
   - [ ] node.js/typescript
   - [ ] ocaml
-  - [ ] rocq
+  - [x] rocq
   - [ ] zig
 - [ ] **update the python template:** currently, the python template uses the
       `venvShellHook` to produce a virtual environment in the working directory.
