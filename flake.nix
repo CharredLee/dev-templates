@@ -4,19 +4,19 @@
   outputs = {self}: {
     templates = {
       lean = {
-        path = ./lean;
+        path = ./templates/lean;
         description = "lean development environment template";
       };
       python = {
-        path = ./python;
-        description = "python development environment template";
+        path = ./templates/python;
+        description = "python development environment template, with uv";
       };
       rust = {
-        path = ./rust;
+        path = ./templates/rust;
         description = "rust development environment template";
       };
       rust-embedded = {
-        path = ./rust-embedded;
+        path = ./templates/rust-embedded;
         description = "embedded rust development environment template";
       };
     };
