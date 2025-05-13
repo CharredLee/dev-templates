@@ -11,6 +11,10 @@
         path = ./templates/python;
         description = "python development environment template, with uv";
       };
+      rocq = {
+        path = ./templates/rocq;
+        description = "rocq development environment template";
+      };
       rust = {
         path = ./templates/rust;
         description = "rust development environment template";
