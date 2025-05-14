@@ -3,6 +3,10 @@
 
   outputs = {self}: {
     templates = {
+      haskell = {
+        path = ./templates/haskell;
+        description = "haskell development environment template";
+      };
       lean = {
         path = ./templates/lean;
         description = "lean development environment template";
