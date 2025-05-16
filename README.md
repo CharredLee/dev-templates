@@ -27,6 +27,7 @@ valid template names are listed in the following table.
 
 | language      | description                   | template name   |
 | ------------- | ----------------------------- | --------------- |
+| c             | the C programming language    | `c`             |
 | lean4         | the lean theorem prover       | `lean`          |
 | haskell       | haskell                       | `haskell`       |
 | python        | python with uv                | `python`        |
@@ -41,7 +42,7 @@ here are the currently planned features and improvements to this project:
 - [ ] **additional language support:** the main target feature right now is
       support for additional languages/tooling. this includes, but is certainly
       not limited to, the following:
-  - [ ] c
+  - [x] c
   - [ ] c++
   - [ ] go
   - [x] haskell

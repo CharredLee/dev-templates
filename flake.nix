@@ -3,6 +3,10 @@
 
   outputs = {self}: {
     templates = {
+      c = {
+        path = ./templates/haskell;
+        description = "C development environment template";
+      };
       haskell = {
         path = ./templates/haskell;
         description = "haskell development environment template";
