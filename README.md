@@ -28,7 +28,9 @@ valid template names are listed in the following table.
 | language      | description                   | template name   |
 | ------------- | ----------------------------- | --------------- |
 | lean4         | the lean theorem prover       | `lean`          |
+| haskell       | haskell                       | `haskell`       |
 | python        | python with uv                | `python`        |
+| rocq          | theorem prover, formerly coq  | `rocq`          |
 | rust          | rust                          | `rust`          |
 | embedded rust | rust for embedded development | `rust-embedded` |
 
@@ -42,7 +44,7 @@ here are the currently planned features and improvements to this project:
   - [ ] c
   - [ ] c++
   - [ ] go
-  - [ ] haskell
+  - [x] haskell
     - [ ] agda
   - [ ] node.js/typescript
   - [ ] ocaml
