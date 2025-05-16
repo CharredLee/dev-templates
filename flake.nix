@@ -4,7 +4,7 @@
   outputs = {self}: {
     templates = {
       c = {
-        path = ./templates/haskell;
+        path = ./templates/c;
         description = "C development environment template";
       };
       haskell = {
