@@ -15,18 +15,20 @@
         f {
           pkgs = import nixpkgs {inherit system;};
         });
+    # change this to change the lake toolchain
+    # e.g. "nightly"
+    toolchain = "stable";
   in {
     devShells = forEachSupportedSystem ({pkgs}: {
       default = pkgs.mkShell {
         packages = with pkgs; [
           elan
         ];
-
         shellHook = ''
-          if [[ -f "lakefile.toml" ]] || [[ -f "lakefile.lean" ]]; then
-            echo "updating lake cache..."
-            lake exe cache get
-          fi
+          echo "toolchain '${toolchain}' selected."
+          elan default ${toolchain}
+          echo "updating lake..."
+          lake update
         '';
       };
     });
