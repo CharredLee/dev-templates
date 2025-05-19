@@ -1,12 +1,6 @@
 # dev-templates
 
-provides opinionated development environment templates using
-[nix-direnv](https://github.com/nix-community/nix-direnv). currently, provides
-templates for the following languages:
-
-- [lean4](https://github.com/leanprover/lean4)
-- python (with [uv](https://github.com/astral-sh/uv))
-- rust, along with a separate template for embedded rust
+provides opinionated development environment templates for nix development.
 
 this project was born out of an appreciation for
 [these dev templates](https://github.com/the-nix-way/dev-templates), but a
