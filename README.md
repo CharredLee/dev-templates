@@ -28,8 +28,8 @@ valid template names are listed in the following table.
 | language      | description                   | template name   |
 | ------------- | ----------------------------- | --------------- |
 | c             | the C programming language    | `c`             |
-| lean4         | the lean theorem prover       | `lean`          |
 | haskell       | haskell                       | `haskell`       |
+| lean4         | the lean theorem prover       | `lean`          |
 | python        | python with uv                | `python`        |
 | rocq          | theorem prover, formerly coq  | `rocq`          |
 | rust          | rust                          | `rust`          |
