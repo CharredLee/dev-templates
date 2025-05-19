@@ -9,13 +9,17 @@ distain for the use of flakehub therein.
 ## usage
 
 to use a template with name `$TEMPLATE`, first
-[ensure that direnv is available in your shell](https://direnv.net/docs/hook.html),
+[ensure that nix-direnv is available in your shell](https://direnv.net/docs/hook.html),
 then run the following commands:
 
 ```sh
 nix flake init --template CharredLee/dev-templates#$TEMPLATE
 direnv allow
 ```
+
+this can also be used without `nix-direnv` by running `nix develop`, however, it
+is recommended for the convenience of the developer to install and enable
+`nix-direnv`.
 
 valid template names are listed in the following table.
 
