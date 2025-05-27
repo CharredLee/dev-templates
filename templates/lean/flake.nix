@@ -25,9 +25,9 @@
           elan
         ];
         shellHook = ''
-          echo "toolchain '${toolchain}' selected."
+          echo -e "\033[0;31m$(tput bold)flake:$(tput sgr0)\033[0m toolchain '${toolchain}' selected."
           elan default ${toolchain}
-          echo "updating lake..."
+          echo -e "\033[0;31m$(tput bold)flake:$(tput sgr0)\033[0m updating lake..."
           lake update
         '';
       };
