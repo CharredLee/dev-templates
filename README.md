@@ -28,6 +28,7 @@ valid template names are listed in the following table.
 | c             | the C programming language    | `c`             |
 | haskell       | haskell                       | `haskell`       |
 | lean4         | the lean theorem prover       | `lean`          |
+| javascript    | javascript via nodejs         | `node`          |
 | python        | python with uv                | `python`        |
 | rocq          | theorem prover, formerly coq  | `rocq`          |
 | rust          | rust                          | `rust`          |
@@ -40,14 +41,14 @@ here are the currently planned features and improvements to this project:
 - [ ] **additional language support:** the main target feature right now is
       support for additional languages/tooling. this includes, but is certainly
       not limited to, the following:
-  - [x] c
+  - [x] ~~c~~
   - [ ] c++
   - [ ] go
-  - [x] haskell
+  - [x] ~~haskell~~
     - [ ] agda
-  - [ ] node.js/typescript
+  - [x] ~~node.js~~
   - [ ] ocaml
-  - [x] rocq
+  - [x] ~~rocq~~
   - [ ] zig
 - [ ] **update the python template:** currently, the python template uses the
       `venvShellHook` to produce a virtual environment in the working directory.

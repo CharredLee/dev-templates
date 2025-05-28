@@ -15,6 +15,10 @@
         path = ./templates/lean;
         description = "lean development environment template";
       };
+      node = {
+        path = ./templates/node;
+        description = "nodejs development environment template";
+      };
       python = {
         path = ./templates/python;
         description = "python development environment template, with uv";
