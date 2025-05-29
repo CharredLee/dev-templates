@@ -1,34 +1,39 @@
 {
-  description = "python development environment template";
+  description = "A Nix-flake-based development environment for python";
 
   inputs = {
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    flake-utils.url = "git+https://github.com/numtide/flake-utils?shallow=1";
   };
 
   outputs = {
     self,
     nixpkgs,
+    flake-utils,
   }: let
-    supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-    forEachSupportedSystem = f:
-      nixpkgs.lib.genAttrs supportedSystems (system:
-        f {
-          pkgs = import nixpkgs {inherit system;};
-        });
+    # change this to change the python version
+    # e.g "3.10"
     version = "3.12";
-  in {
-    devShells = forEachSupportedSystem (
-      {pkgs}: let
+  in
+    flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
         python = pkgs."python${builtins.replaceStrings ["."] [""] version}";
       in {
-        default = pkgs.mkShellNoCC {
+        devShells.default = pkgs.mkShellNoCC {
           venvDir = ".venv";
+
           packages = [
             python.pkgs.venvShellHook
-            pkgs.uv
+            python.pkgs.uv
           ];
+
+          env = {};
+
+          postShellHook = ''
+
+          '';
         };
       }
     );
-  };
 }

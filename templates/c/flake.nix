@@ -1,30 +1,34 @@
 {
-  description = "A Nix-flake-based development environment for c";
+  description = "A Nix-flake-based development environment for C";
 
   inputs = {
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    flake-utils.url = "git+https://github.com/numtide/flake-utils?shallow=1";
   };
 
   outputs = {
     self,
     nixpkgs,
-  }: let
-    supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-    forEachSupportedSystem = f:
-      nixpkgs.lib.genAttrs supportedSystems (system:
-        f {
-          pkgs = import nixpkgs {inherit system;};
-        });
-  in {
-    devShells = forEachSupportedSystem ({pkgs}: {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          cmake
-          glibc
-          clang
-          clang-tools
-        ];
-      };
-    });
-  };
+    flake-utils,
+  }:
+    flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+      in {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            cmake
+            glibc
+            clang
+            clang-tools
+          ];
+
+          env = {};
+
+          shellHook = ''
+
+          '';
+        };
+      }
+    );
 }

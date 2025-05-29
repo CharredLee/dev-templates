@@ -1,36 +1,37 @@
 {
-  description = "A Nix-flake-based development environment for Lean4";
+  description = "A Nix-flake-based development environment for Lean 4";
 
   inputs = {
     nixpkgs.url = "git+https://github.com/NixOS/nixpkgs?shallow=1&ref=nixos-unstable";
+    flake-utils.url = "git+https://github.com/numtide/flake-utils?shallow=1";
   };
 
   outputs = {
     self,
     nixpkgs,
-  }: let
-    supportedSystems = ["x86_64-linux" "aarch64-linux" "x86_64-darwin" "aarch64-darwin"];
-    forEachSupportedSystem = f:
-      nixpkgs.lib.genAttrs supportedSystems (system:
-        f {
-          pkgs = import nixpkgs {inherit system;};
-        });
-    # change this to change the lake toolchain
-    # e.g. "nightly"
-    toolchain = "stable";
-  in {
-    devShells = forEachSupportedSystem ({pkgs}: {
-      default = pkgs.mkShell {
-        packages = with pkgs; [
-          elan
-        ];
-        shellHook = ''
-          echo -e "\033[0;31m$(tput bold)flake:$(tput sgr0)\033[0m toolchain '${toolchain}' selected."
-          elan default ${toolchain}
-          echo -e "\033[0;31m$(tput bold)flake:$(tput sgr0)\033[0m updating lake..."
-          lake update
-        '';
-      };
-    });
-  };
+    flake-utils,
+  }:
+    flake-utils.lib.eachDefaultSystem (
+      system: let
+        pkgs = import nixpkgs {inherit system;};
+        # change this to change the lean toolchain
+        # e.g. "nightly"
+        toolchain = "stable";
+      in {
+        devShells.default = pkgs.mkShell {
+          packages = with pkgs; [
+            elan
+          ];
+
+          env = {};
+
+          shellHook = ''
+            echo -e "\033[0;31m$(tput bold)flake:$(tput sgr0)\033[0m toolchain '${toolchain}' selected."
+            elan default ${toolchain}
+            echo -e "\033[0;31m$(tput bold)flake:$(tput sgr0)\033[0m updating lake..."
+            lake update
+          '';
+        };
+      }
+    );
 }
