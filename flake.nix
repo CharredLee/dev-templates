@@ -7,6 +7,10 @@
         path = ./templates/c;
         description = "C development environment template";
       };
+      default = {
+        path = ./templates/default;
+        description = "default development environment template";
+      };
       haskell = {
         path = ./templates/haskell;
         description = "haskell development environment template";

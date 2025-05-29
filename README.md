@@ -25,6 +25,7 @@ valid template names are listed in the following table.
 
 | language      | description                   | template name   |
 | ------------- | ----------------------------- | --------------- |
+| NONE          | the default template          | `default`       |
 | c             | the C programming language    | `c`             |
 | haskell       | haskell                       | `haskell`       |
 | lean4         | the lean theorem prover       | `lean`          |
